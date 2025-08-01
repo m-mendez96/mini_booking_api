@@ -13,3 +13,5 @@ isort
 black
 autopep8
 pre-commit
+drf-spectacular
+drf-spectacular-sidecar
