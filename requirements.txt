@@ -1,0 +1,15 @@
+Django>=5.0
+djangorestframework
+psycopg2-binary
+python-dotenv
+gunicorn
+pytest
+pytest-django
+mypy
+djangorestframework-simplejwt
+requests
+flake8
+isort
+black
+autopep8
+pre-commit
