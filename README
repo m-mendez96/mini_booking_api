@@ -1,0 +1,59 @@
+# Mini-Booking API
+
+This is a REST API for scheduling short farm-site inspections. It includes:
+
+- JWT authentication
+- Public holiday validation (NZ)
+- Weather snapshot on booking confirmation
+- Swagger documentation
+- PostgreSQL database
+- Dockerized environment
+
+---
+
+## Setup Instructions
+
+### 1. Clone the project
+  ```
+    git clone https://github.com/m-mendez96/mini_booking_api.git
+    cd mini_booking_api
+  ```
+
+### 2. Create the .env file
+
+- Copy the example file and customize as needed: `cp .env.example .env`
+- Update the environment variables (especially SECRET_KEY, DB credentials, etc.).
+
+### 3. Build and start the containers
+  ```
+    docker compose up --build
+  ```
+  Let the containers initialize.
+
+### 4. Run migrations
+  In a separate terminal, apply migrations:
+  ```
+    docker compose exec api python manage.py migrate
+  ```
+
+### 5. Create superuser
+  Still in the terminal:
+  ```
+    docker compose exec api python manage.py createsuperuser
+  ```
+  Enter your desired username, email, and password when prompted.
+  Important: Remember these credentials — you'll use them to log into the admin and API.
+
+## Verify the api is working
+
+- Admin panel:
+  ```
+    http://localhost:8000/admin
+  ```
+  Use the credentials you set during createsuperuser.
+
+- Swagger API docs:
+  ```
+    http://localhost:8000/api/docs/
+  ```
+  Explore and test the API directly from the browser.
