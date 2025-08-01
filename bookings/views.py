@@ -20,3 +20,13 @@ class BookingViewSet(viewsets.ModelViewSet):
             instance.save()
         except Exception:
             pass
+
+    def perform_update(self, serializer):
+        instance = serializer.save()
+        try:
+            weather = get_current_weather(instance.latitude, instance.longitude)
+            instance.temperature = weather["temperature"]
+            instance.wind_speed = weather["wind_speed"]
+            instance.save()
+        except Exception:
+            pass
